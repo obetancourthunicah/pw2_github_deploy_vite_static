@@ -20,5 +20,6 @@ export default defineConfig({
     plugins: [
         htmlPurge({}),
         ViteMinifyPlugin({}),
-    ]
+    ],
+    base: "/pw2_github_deploy_vite_static/"
 })
