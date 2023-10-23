@@ -1,0 +1,35 @@
+.generate-columns(@suf, @n, @i : 1) when (@i =< @n) {
+    @column-selector: ~".col-@{suf}@{i}";
+    @{column-selector} {
+        flex-basis: (@i * 100% / @n);
+    }
+    .generate-columns(@suf, @n, (@i + 1));
+}
+
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    [class*="col-"] {
+        flex:1;
+    }
+    .generate-columns("", 12);
+
+    @media (min-width: @size[tablet]) {
+        @sf1 : @size-prf[tablet];
+        @suf : ~"@{sf1}-";
+        .generate-columns(@suf, 12);
+    }
+
+    @media (min-width: @size[desktop]) {
+        @sf1 : @size-prf[desktop];
+        @suf : ~"@{sf1}-";
+        .generate-columns(@suf, 12);
+    }
+
+    @media (min-width: @size[widescreen]) {
+        @sf1 : @size-prf[widescreen];
+        @suf : ~"@{sf1}-";
+        .generate-columns(@suf, 12);
+    }
+}

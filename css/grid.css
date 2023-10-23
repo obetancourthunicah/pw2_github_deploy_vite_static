@@ -1,0 +1,19 @@
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+[class*="col-"]{
+    flex:1
+}
+.col-1 {
+    flex-basis: calc(100%/12);
+}
+.col-3 {
+    flex-basis: calc(100%/4);
+}
+.col-4 {
+    flex-basis: calc(100%/3);
+}
+.col-6 {
+    flex-basis: calc(100%/2);
+}
