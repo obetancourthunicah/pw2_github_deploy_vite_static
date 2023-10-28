@@ -8,6 +8,8 @@ import handlebars from 'vite-plugin-handlebars';
 import handlerBarsContext from './variables.js';
 
 export default defineConfig({
+    base: "/pw2_github_deploy_vite_static/",
+    appType: 'mpa',
     build: {
         rollupOptions: {
             input: Object.fromEntries(
@@ -29,6 +31,5 @@ export default defineConfig({
         }),
         htmlPurge({}),
         ViteMinifyPlugin({}),
-    ],
-    base: "/pw2_github_deploy_vite_static/"
+    ]
 })
