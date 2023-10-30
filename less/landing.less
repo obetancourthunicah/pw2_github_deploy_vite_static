@@ -1,42 +1,21 @@
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: @primary-bg-color;
-    padding: 0px 0.5rem;
-    section {
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-    nav{
-        ul{
-            display: flex;
-            list-style: none;
-            li{
-                a {
-                    display: inline-block;
-                    padding: 0.5rem 0.75rem;
-                    text-decoration: none;
-                    color: @primary-tx-color
-                }
-            }
-        }
-    }
-}
-
 main {
-    .no-padding-margin();
+    flex: 1 1 auto;
+    padding:0.5rem 1rem;
     background-color: @secondary-bg-color;
     color: @secondary-tx-color;
+    min-width:100vh;
 }
 
 .hero-panel {
     position:relative;
     height: 380px;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-top: -0.5rem;
+    overflow: hidden;
     @media  (min-width: @size[tablet]) {
         height: 640px;
     }
-    overflow: hidden;
     h1 {
         position: absolute;
         top:30%;

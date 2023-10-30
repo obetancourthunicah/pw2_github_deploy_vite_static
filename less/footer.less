@@ -1,0 +1,27 @@
+footer {
+    flex: 0 1 auto;
+    padding:0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    ul {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+        min-width: 180px;
+        li {
+            display: block;
+            margin: 0px 0.5rem;
+            a {
+                text-decoration: none;
+                color: @primary-tx-color;
+            }
+        }
+    }
+    @media (min-width: @size[tablet]) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}

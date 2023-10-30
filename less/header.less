@@ -1,0 +1,104 @@
+header {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: @primary-bg-color;
+    padding: 0px 0.5rem;
+    height: 45px;
+    section {
+        font-size: 1.2rem;
+        font-weight: bold;
+        width:100%;
+        @media (min-width: @size[tablet]) {
+            width: auto;
+        }
+    }
+
+    nav {
+        position:absolute;
+        top:46px;
+        left:0;
+        bottom: 0px;
+        width:100%;
+        height: ~'calc(100% - 46px)';
+        background-color: @primary-bg-color;
+        display: none;
+        z-index: 100;
+        ul {
+            padding: 0px;
+            margin: 0px;
+            li {
+                border-bottom: 1px solid @primary-tx-color;
+                a {
+                    display: block;
+                    padding: 0.5rem 0.75rem;
+                    text-decoration: none;
+                    color: @primary-tx-color;
+                    text-align: center;
+                }
+            }
+        }
+        @media (min-width: @size[tablet]) {
+            position: relative;
+            height: auto;
+            top:auto;
+            left: auto;
+            bottom: auto;
+            display: block;
+            width: auto;
+            ul {
+                display: flex;
+                list-style: none;
+
+                li {
+                    border-bottom: none;
+                    a {
+                        display: inline-block;
+                        padding: 0.5rem 0.75rem;
+                        text-decoration: none;
+                        color: @primary-tx-color
+                    }
+                }
+            }
+        }
+    }
+
+    .hamburger {
+        display: block;
+        padding: 0.5rem;
+
+        @media (min-width: @size[tablet]) {
+            display: none;
+        }
+
+        .line {
+            width: 30px;
+            height: 3px;
+            background-color: @primary-tx-color;
+            margin: 5px 0;
+            transition: all 0.5s ease-in-out;
+        }
+    }
+
+    #hamburger-input {
+        display: none;
+        &:checked~.hamburger {
+            .line:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+
+            .line:nth-child(2) {
+                opacity: 0;
+            }
+
+            .line:nth-child(3) {
+                transform: rotate(-45deg) translate(4px, -6px);
+            }
+        }
+
+        &:checked~nav {
+            display: block;
+        }
+    }
+}
