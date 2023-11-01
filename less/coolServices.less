@@ -1,0 +1,245 @@
+// Color variables (appears count calculates by raw css)
+@color0: #ffffff; // Appears 5 times
+
+// Width variables (appears count calculates by raw css)
+@width2: 100%; // Appears 4 times
+@width5: 50%; // Appears 2 times
+
+// Height variables (appears count calculates by raw css)
+@height2: 100%; // Appears 8 times
+
+html {
+	height: @height2;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: @color0;
+	height: @height2;
+	margin: 0;
+	padding: 0;
+}
+main {
+	margin:0px;
+	padding:0px;
+	position: relative;
+}
+.js-transitions-disabled {
+	* {
+		transition: none !important;
+	}
+}
+.carousel {
+	height: @height2;
+	overflow: hidden;
+	perspective-origin: 50% 50%;
+	perspective: 50vw;
+	position: relative;
+	box-sizing: content-box;
+}
+.carousel__control {
+	background: @color0;
+	bottom: 0;
+	height: 160px;
+	margin: auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 40px;
+	z-index: 1;
+	a {
+		box-sizing: border-box;
+		display: block;
+		padding-top: 75%;
+		position: relative;
+		width: @width2;
+		&:hover {
+			before {
+				background-color: rgba(0,0,0,0.4);
+			}
+		}
+		&:first-child {
+			margin-top: 15px;
+		}
+		&:before {
+			background: rgba(0,0,0,0.2);
+			border-radius: 50%;
+			content: '';
+			display: block;
+			left: 0;
+			margin-top: -12.5%;
+			margin: auto;
+			padding-top: 25%;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			width: 25%;
+		}
+	}
+	a.active {
+		&:before {
+			background-color: rgba(0,0,0,0.6);
+		}
+		&:hover {
+			before {
+				background-color: rgba(0,0,0,0.6);
+			}
+		}
+	}
+}
+.carousel__stage {
+	bottom: 20px;
+	left: 20px;
+	margin: auto;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	transform-style: preserve-3d;
+	transform: translateZ(calc(-50vh + 20px));
+}
+.spinner {
+	backface-visibility: hidden;
+	bottom: 0;
+	height: calc(100vh - 40px);
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: auto;
+	top: 0;
+	transform-origin: 50% 50%;
+	transform-style: preserve-3d;
+	transform: rotateX(0);
+	transition: transform 1s;
+	width: calc(50vw - (20px));
+}
+.js-spin-fwd {
+	.spinner {
+		transform: rotateX(-90deg);
+	}
+	.spinner--right {
+		transform: rotateX(90deg);
+	}
+}
+.js-spin-bwd {
+	.spinner {
+		transform: rotateX(90deg);
+	}
+	.spinner--right {
+		transform: rotateX(-90deg);
+		.spinner__face.js-next {
+			transform: rotateX(-270deg) translateZ(calc(50vh - 20px));
+		}
+	}
+	.spinner__face.js-next {
+		transform: rotateX(-90deg) translateZ(calc(50vh - 20px));
+	}
+}
+.spinner--right {
+	left: auto;
+	right: 0;
+	.spinner__face.js-next {
+		transform: rotateX(270deg) translateZ(calc(50vh - 20px));
+	}
+	.content {
+		left: -100%;
+	}
+}
+.spinner__face {
+	display: none;
+	height: @height2;
+	overflow: hidden;
+	position: absolute;
+	width: @width2;
+}
+.spinner__face.js-next {
+	display: block;
+	transform: rotateX(90deg) translateZ(calc(50vh - 20px));
+}
+.js-active {
+	display: block;
+	transform: translateZ(calc(50vh - 20px));
+}
+.content {
+	height: @height2;
+	left: 0;
+	position: absolute;
+	width: 200%;
+}
+.content__left {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	height: @height2;
+	left: 0px;
+	position: absolute;
+	top: 0;
+	width: @width5;
+	&:after {
+		background-color: rgba(0,0,0,0.1);
+		content: "";
+		display: block;
+		height: @height2;
+		position: absolute;
+		width: @width2;
+	}
+	h1 {
+		color: @color0;
+		font-family: oswald;
+		font-size: 5vw;
+		height: 10vw;
+		letter-spacing: 0.15em;
+		line-height: 0.6;
+		margin-top: -3vw;
+		opacity: 1;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		width: 90%;
+	}
+	span {
+		font-family: Merriweather;
+		font-size: 1vw;
+		font-weight: 300;
+		letter-spacing: 0.2em;
+		opacity: 0.9;
+	}
+}
+.content__right {
+	align-items: center;
+	display: flex;
+	height: @height2;
+	justify-content: center;
+	left: auto;
+	position: absolute;
+	right: 0px;
+	top: 0;
+	width: @width5;
+	.content__main {
+		color: @color0;
+		font-family: Merriweather, serif;
+		font-size: 1.3vw;
+		font-weight: 300;
+		line-height: 1.65;
+		margin: 0;
+		opacity: 0.8;
+		padding: 0 8vw;
+		position: absolute;
+		text-align: left;
+		p {
+			&:last-child {
+				font-size: 0.85em;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+			}
+		}
+	}
+	.content__index {
+		color: @color0;
+		font-family: oswald;
+		font-size: 30vh;
+		opacity: 0.04;
+		position: absolute;
+		right: -1vh;
+		top: 35vh;
+	}
+}
